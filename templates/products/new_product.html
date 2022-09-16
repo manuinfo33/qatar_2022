@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_que_cambia %}
+<p style="text-align: center">_________________________________________________________________________________________________________________________________________________________________________</p>
+<h3 style="text-align: center">CARGA UN NUEVO PRODUCTO</h3>
+<h4 style="text-align: center">Lo podras visualizar desde la seccion "Ver Productos"</h4>
+<p style="text-align: center">_________________________________________________________________________________________________________________________________________________________________________</p>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <p><input type="submit" value="Enviar"></p>
+
+</form>
+
+{% endblock %}

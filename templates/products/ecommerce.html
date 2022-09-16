@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'products/assets/favicon.ico' %}" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'products/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="http://localhost:8000/">QATAR 2022</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="http://localhost:8000/">Inicio</a></li>
+                    <!--<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ganá</a></li>-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Shop
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="http://localhost:8000/products/new-product/">Crear
+                                Productos</a>
+                            <a class="dropdown-item" href="http://localhost:8000/win/all-participants/">Ver
+                                Productos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Noticias
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="http://localhost:8000/news/new-article/">Crear Noticia</a>
+                            <a class="dropdown-item" href="http://localhost:8000/news/all-articles/">Ver Noticias</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Ganá
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="http://localhost:8000/win/new-participant/">Formulario</a>
+                            <a class="dropdown-item"
+                                href="http://localhost:8000/win/all-participants/">Participantes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Nuestro Shop</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Adquiere ahora los productos oficiales del mundial</p>
+            </div>
+        </div>
+    </header>
+
+    {% for product in all_products %}
+    <div class="col-lg-6">
+        <!-- Blog post-->
+        <div class="card mb-4">
+            <a href="#!"><img class="card-img-top" src="https://www.cronista.com/files/image/453/453743/623b787b8f767_700_700!.jpg?s=905da2a2687906585efe5ef0326a763a&d=1648064637" alt="..." /></a>
+            <div class="card-body">
+                <div class="small text-muted" style="background-color:rgb(193, 255, 255)">PRODUCTO OFICIAL</div>
+                <h2 class="card-title h4">{{product.name}}</h2>
+                <p class="card-text">Precio: ${{product.price}}</p>
+                <p class="card-text">Stock: {{product.stock}} u.</p>
+                <a class="btn btn-primary" href="/products/update-products/{{product.id}}/">Editar</a>
+                <a class="btn btn-danger" href="/products/delete-products/{{product.id}}/">Borrar</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Creadores &copy; Santecchia Manuel / Espitia Marco Romero / Mejia Manuel</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'products/js/scripts.js' %}"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+</html>

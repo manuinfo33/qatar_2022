@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_que_cambia %}
+<p style="text-align: center">
+    _________________________________________________________________________________________________________________________________________________________________________
+</p>
+<h3 style="text-align: center">ESTAS QUERIENDO BORRAR UN PRODUCTO</h3>
+<h4 style="text-align: center">¿Está seguro que desea borrar este producto?</h4>
+<p style="text-align: center">
+    _________________________________________________________________________________________________________________________________________________________________________
+</p>
+<div class="col-lg-6">
+    <!-- Blog post-->
+        <div class="card mb-4">
+        {% if products.image %}
+        
+            <a href="#!"><img class="card-img-top" src="{{products.image.url}}" alt="..." /></a>
+        {% else %}
+            <a href="#!"><img class="card-img-top" src="https://www.cronista.com/files/image/453/453743/623b787b8f767_700_700!.jpg?s=905da2a2687906585efe5ef0326a763a&d=1648064637" alt="..." /></a>
+        {% endif %}
+        <div class="card-body">
+            <div class="small text-muted" style="background-color:rgb(193, 255, 255)">PRODUCTO OFICIAL</div>
+            <h2 class="card-title h4">{{products.name}}</h2>
+            <h4 class="card-text">Precio: ${{products.price}}</h4>
+            <p class="card-text">Stock: ${{products.stock}} u.</p>
+        </div>
+    </div>
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <p><input type="submit" value="Borrar"></p>
+
+</form>
+
+{% endblock %}

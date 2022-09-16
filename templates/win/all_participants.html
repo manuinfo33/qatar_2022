@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_que_cambia %}
+<p style="text-align: center">_________________________________________________________________________________________________________________________________________________________________________</p>
+<h3 style="text-align: center">LISTADO DE PARTICIPANTES</h3>
+<h5 style="text-align: center">Listado de usuarios que participaran el 1° de diciembre por 2 pasajes al mundial de Qatar 2022.</h5>
+<div style="text-align: center"><a href="http://localhost:8000/win/new-participant/" class="btn btn-primary">SI NO ESTAS, PARTICIPA AQUÍ</a></div>
+<p style="text-align: center">_________________________________________________________________________________________________________________________________________________________________________</p>
+
+
+{% for participant in all_participants %}
+
+<div class="card w-50" >
+  <div class="card-body">
+    <h5 class="card-title"><b>Nombre:</b>{{participant.name}}</h5>
+    <p class="card-text"><b>Descripción:</b> {{participant.description}}</p>
+    <p class="card-text"><b>Documento:</b> {{participant.document}}</p>
+    <p class="card-text"><b>Pais:</b> {{participant.country}}</p>
+    <p class="card-text"><b>Edad:</b> {{participant.age}} años</p>
+  </div>
+</div>
+<p>_______________________________________________________________________________________________________</p>
+{% endfor %}
+
+{% endblock %}

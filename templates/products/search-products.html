@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_que_cambia %}
+
+{% for product in products %}
+    <div class="col-lg-6">
+        <!-- Blog post-->
+        {% if product.image %}
+        <div class="card mb-4">
+            <a href="#!"><img class="card-img-top" src="{{product.image.url}}" alt="..." /></a>
+            {% else %}
+            <a href="#!"><img class="card-img-top" src="https://www.cronista.com/files/image/453/453743/623b787b8f767_700_700!.jpg?s=905da2a2687906585efe5ef0326a763a&d=1648064637" alt="..." /></a>
+            {% endif %}
+            <div class="card-body">
+                <div class="small text-muted" style="background-color:rgb(193, 255, 255)">PRODUCTO OFICIAL</div>
+                <h2 class="card-title h4">{{product.name}}</h2>
+                <h2 class="card-title h4">Precio: ${{product.price}}</h2>
+                <p class="card-text">Stock: {{product.stock}} u.</p>
+                <a class="btn btn-primary" href="">Comprar</a>
+                {% if request.user.is_authenticated and request.user.is_superuser %}
+                <a class="btn btn-primary" href="/products/update-products/{{product.id}}/">Editar</a>
+                <a class="btn btn-danger" href="/products/delete-products/{{product.id}}/">Borrar</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}  
+{% endblock %}

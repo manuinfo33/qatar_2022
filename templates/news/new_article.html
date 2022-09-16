@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_que_cambia %}
+<h3>AGREGA UN NUEVO ARTICULO</h3>
+<h4>Gracias por escribir</h4>
+<p>____________________________________________________________________________________________________________________</p>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <p><input type="submit" value="Enviar"></p>
+
+</form>
+
+{% endblock %}
+
+
+<h1>¡CREASTE UN NUEVO ARTICULO!</h1>
+<p>____________________________</p>
+<h2>Titulo del articulo= {{new_article.title}}</h2>
+<h2>Descripcion= {{new_article.description}}</h2>
+<h2>Autor= {{new_article.author}}</h2>
